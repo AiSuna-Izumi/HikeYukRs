@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>HikeYuk</title>  
+  <link href="static/img/logoHike.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link href="static/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="static/styleLogin.css">
+  <link rel="stylesheet" href="static/stylePop.css">
+
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/styleBack1.css">
+  <script>
+    function openForm(){
+      document.getElementById("login").style.display="block";
+    }
+    function closeForm() {
+      document.getElementById("login").style.display = "none";
+    }
+  </script>
+</head>
+
+<body >
+ 
+<div class="popups-cont">
+    <div class="popups-cont__overlay"></div>
+    <div class="popup">
+      <div class="popup__pieces"></div>
+      <div class="popup__content">
+        <div class="popup__close"></div>
+        <h3 class="popup__heading">Recommender System</h3>
+
+        <form class='popup-text' method='POST' action='/getData'>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nama</label>
+            <input type="text" class="form-control" name="nama" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Umur</label>
+            <input type="number" class="form-control"  min='3'name="umur" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tinggi</label>
+            <input type="number" class="form-control" min='90' name="tinggi" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Berat</label>
+            <input type="number" class="form-control"  min='15' name="berat" >
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Negeri</label>
+            <select class="form-select" aria-label="Default select example" name='negeri'>
+              <option selected>Pilih Negeri Anda</option>
+              <option value="Terengganu">Terengganu</option>
+              <option value="Pahang">Pahang</option>
+              <option value="Perak">Perak</option>
+          </select>
+          </div>
+      
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- ======= Header ======= -->
+ 
+<!-- <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+    <source src="static/vid/back2.mp4" type="video/mp4">
+  </video> -->
+
+  <header  id="header" class="fixed-top d-flex align-items-center  header-transparent" >
+    <div class="container d-flex align-items-center justify-content-between" >
+      <div class="logo">
+        <h1><a href="#hero">HikeYuk Recommender System</a></h1> 
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Utama</a></li>
+          <li><a class="nav-link scrollto" href="#about">Kelebihan Mendaki</a></li>
+          <li><a class="nav-link scrollto" href="#popup">Senarai Tempat</a></li>
+          <li><a class="nav-link scrollto " href="#bestPhoto">Gambar Terbaik</a></li>
+
+          <li><a class="nav-link scrollto popup-btn ">HikeYukRS</a></li>
+         
+        </ul>
+       <!-- <button type="button" class="popup-btn">Show Popup</button> -->
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar --> 
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section  id="hero" class="d-flex flex-column justify-content-end align-items-center"  > 
+    <div  id="heroCarousel"  data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container"> 
+          <img src="static/img/hikeYuk.png" style="width: 200px;height: 200px;">
+          <h2 class="animate__animated animate__fadeInDown">Welcome To <span>HikeYuk Recommender System</span></h2>
+          <p class="animate__animated fanimate__adeInUp">Disini kami menyediakan pelbagai kemudahan untuk anda pergi mendaki</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Enjoy With Nature</h2>
+          <p class="animate__animated animate__fadeInUp">Everyone wants happiness , no one wants pain . but you can’t have a rainbow without a little rain </p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Ayuh Berkelana</h2>
+          <p class="animate__animated animate__fadeInUp">Hidup tak seindah mimpi . hidup bukan fantasi yang dicipta sendiri. Berjalanlah mencari hikmah yang ada didalamnya . insya-Allah bahagia .</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Bersama Teman</h2>
+          <p class="animate__animated animate__fadeInUp">Hidup ini mudah jer. Sesiapa sahaja yang berada di sekeliling kita itulah yang menjadi kawan kita. Yang lepas jadikan kenangan. Hargai apa yang ada didepan kita.</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+        </div>
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(208, 230, 161, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(208, 230, 161, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="rgba(208, 230, 161, .3)">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>HikeYuk</h2>
+          <p>Kelebihan Aktiviti Pendakian</p>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+          <div class="col-lg-6">
+            <p>
+              Hiking merupakan salah satu aktiviti kembara berjalan kaki dengan mendaki bukit hingga ke puncak. Aktiviti seumpama ini mampu menguatkan serta meningkatkan tahap kecergasan anggota fizikal serta menjimatkan perbelanjaan kerana tidak memerlukan peralatan atau kelengkapan khas. Jarak perjalanan kembara hiking yang dilakukan adalah bergantung kepada kemampuan seseorang, khususnya fizikal badan serta kekuatan tenaga dan perbafasan.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Membersihkan Minda</li>
+              <li><i class="ri-check-double-line"></i> Meningkatkan Kualiti Tidur</li>
+              <li><i class="ri-check-double-line"></i> Meningkatkan Daya Ingatan Ketika Mendaki</li>
+              <li><i class="ri-check-double-line"></i> Mengurangkan Tekanan dan Anxiety</li>
+              <li><i class="ri-check-double-line"></i> Meningkatkan Stamina</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <br></br>
+            <br></br>
+            <br>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Luangkan Masa Untuk Diri Sendiri</li>
+              <li><i class="ri-check-double-line"></i> Memperlahankan Proses Penuaan</li>
+              <li><i class="ri-check-double-line"></i> Belajar Mengenal Erti Kehidupan</li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+        <ul class="nav nav-tabs row d-flex">
+          <li class="nav-item col-3" data-aos="zoom-in">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+              <i class="ri-gps-line"></i>
+              <h4 class="d-none d-lg-block">Lokasi Yang Sesuai</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="100">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+              <i class="ri-body-scan-line"></i>
+              <h4 class="d-none d-lg-block">Menyihatkan Tubuh Badan</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+              <i class="ri-sun-line"></i>
+              <h4 class="d-none d-lg-block">Aturkan Masa Yang Sesuai</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+              <i class="ri-parent-line"></i>
+              <h4 class="d-none d-lg-block">Berkenalan Dengan Kawan Baru</h4>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section><!-- End Features Section -->
+
+   
+
+    <!-- ======= Services Section ======= -->
+<section id="popup" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>SENARAI TEMPAT</h2>
+          <p>KOLEKSI TEMPAT PENDAKIAN</p>
+        </div>
+
+        <!-- Button trigger modal -->
+        
+        <center>
+          <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#N11">Terengganu</button>
+          <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#N06">Pahang</button>
+          <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#N08">Perak</button>
+        </center>
+
+<!-- Modal -->
+
+<div class="modal fade " id="N11" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="N11">Senarai Pendakian Terengganu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead class='table-success'>
+            <tr>
+              {% for p11 in CN11 %}
+               <th>{{p11}}</th>
+               {%endfor%}
+            </tr>
+          </thead>
+          <tbody>
+            {%for R11 in RN11%}
+            <tr class='table-danger'>  
+              {%for cell in R11%}
+              <td>{{cell}}</td>
+              {%endfor%}
+            </tr>
+        {%endfor%}
+          </tbody>
+        </table>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade " id="N06" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="N06">Senarai Pendakian Pahang</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead class='table-success'>
+            <tr>
+              {% for p06 in CN06 %}
+               <th>{{p06}}</th>
+               {%endfor%}
+            </tr>
+          </thead>
+          <tbody>
+            {%for R06 in RN06%}
+            <tr class='table-info'>  
+              {%for cell in R06%}
+              <td>{{cell}}</td>
+              {%endfor%}
+            </tr>
+        {%endfor%}
+          </tbody>
+        </table>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade " id="N08" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="N08">Senarai Pendakian Perak</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead class='table-success'>
+            <tr>
+              {% for p08 in CN08 %}
+               <th>{{p08}}</th>
+               {%endfor%}
+            </tr>
+          </thead>
+          <tbody>
+            {%for R08 in RN08%}
+            <tr class='table-secondary'>  
+              {%for cell in R08%}
+              <td>{{cell}}</td>
+              {%endfor%}
+            </tr>
+        {%endfor%}
+          </tbody>
+        </table>
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      </div>
+</section><!-- End BestView Section -->
+
+
+    <!-- ======= BestView Section ======= -->
+    <section id="bestPhoto" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>GAMBAR MENARIK</h2>
+          <p>KOLEKSI GAMBAR</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+          <li data-filter="*" class="filter-active">Semua</li>
+          <li data-filter=".filter-BM">Bukit Bendera</li>
+          <li data-filter=".filter-HM">Harimau Menangis</li>
+          <li data-filter=".filter-JM">Janda Mandi</li>
+          <li data-filter=".filter-MD">Mak Dayang</li>
+          <li data-filter=".filter-ME">Menderu</li>
+          <li data-filter=".filter-TS">Telaga Simpul</li>
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-BM">
+            <div class="portfolio-img"><img src="static/img/BukitBendera/DSC_2815.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Bendera</h4>
+              <p>Pantai Teluk Mak Nik</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-BM">
+            <div class="portfolio-img"><img src="static/img/BukitBendera/21e5df25-50d6-48e8-8698-47037c5cf376.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Bendera</h4>
+              <p>Pantai Teluk Mak Nik</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-BM">
+            <div class="portfolio-img"><img src="static/img/BukitBendera/c3a1d2e3-647a-4d5e-b2ae-fcd260ea22d4.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Bendera</h4>
+              <p>Pantai Teluk Mak Nik</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-BM">
+            <div class="portfolio-img"><img src="static/img/BukitBendera/photo_2021-05-25_01-40-20.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Bendera</h4>
+              <p>Pantai Teluk Mak Nik</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-BM">
+            <div class="portfolio-img"><img src="static/img/BukitBendera/photo_2021-05-25_01-40-08.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Harimau Menangis</h4>
+              <p>Kemasik, Kemaman</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-HM">
+            <div class="portfolio-img"><img src="static/img/HarimauMenangis/25348149.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Harimau Menangis</h4>
+              <p>Kemasik, Kemaman</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-HM">
+            <div class="portfolio-img"><img src="static/img/HarimauMenangis/27293435.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Harimau Menangis</h4>
+              <p>Kemasik, Kemaman</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-HM">
+            <div class="portfolio-img"><img src="static/img/HarimauMenangis/eb3729dd-93c7-494b-85b3-0a133bb47c61.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Harimau Menangis</h4>
+              <p>Kemasik, Kemaman</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-HM">
+            <div class="portfolio-img"><img src="static/img/HarimauMenangis/9ed4a844-ffe5-4ffc-aa2b-096b9234b84a.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Harimau Menangis</h4>
+              <p>Kemasik, Kemaman</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-JM">
+            <div class="portfolio-img"><img src="static/img/JandaMandi/photo_2021-05-29_00-51-42.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Janda Mandi</h4>
+              <p>Bukit Gemok</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-JM">
+            <div class="portfolio-img"><img src="static/img/JandaMandi/photo_2021-05-29_00-51-49.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Janda Mandi</h4>
+              <p>Bukit Gemok</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-JM">
+            <div class="portfolio-img"><img src="static/img/JandaMandi/photo_2021-05-29_00-52-03.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Janda Mandi</h4>
+              <p>Bukit Gemok</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-JM">
+            <div class="portfolio-img"><img src="static/img/JandaMandi/photo_2021-05-29_00-52-13.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Janda Mandi</h4>
+              <p>Bukit Gemok</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-JM">
+            <div class="portfolio-img"><img src="static/img/JandaMandi/photo_2021-05-29_00-52-29.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Janda Mandi</h4>
+              <p>Bukit Gemok</p>
+            </div>
+          </div><div class="col-lg-4 col-md-6 portfolio-item filter-JM">
+            <div class="portfolio-img"><img src="static/img/JandaMandi/photo_2021-05-29_00-52-36.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Janda Mandi</h4>
+              <p>Bukit Gemok</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-MD">
+            <div class="portfolio-img"><img src="static/img/MakDayang/89803973_00L27A0A5hvr2_QSBq1iVw7NaRVW6RMLaBYNspm-ly8.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Mak Dayang</h4>
+              <p>Chukai, Kemaman</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-MD">
+            <div class="portfolio-img"><img src="static/img/MakDayang/download (1).jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Mak Dayang</h4>
+              <p>Chukai Kemaman</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-MD">
+            <div class="portfolio-img"><img src="static/img/MakDayang/extra_large_0887bbad37516082bf8c6e2e2f2d58f0.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukti Mak Dayang</h4>
+              <p>Chukai Kemaman</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-MD">
+            <div class="portfolio-img"><img src="static/img/MakDayang/21088669.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Bukit Mak Dayang</h4>
+              <p>Chukai, Kemaman</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-TS">
+            <div class="portfolio-img"><img src="static/img/TelagaSimpul/5cd1cc0d-46d1-4aeb-a99e-b0891534d4f8.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Telaga Simpul</h4>
+              <p>Pantai Marina</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-TS">
+            <div class="portfolio-img"><img src="static/img/TelagaSimpul/75da3153-7d65-4df4-bd4e-25444d1a56fc.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Telaga Simpul</h4>
+              <p>Pantai Marina</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-TS">
+            <div class="portfolio-img"><img src="static/img/TelagaSimpul/7e05403d-05c4-4c30-8280-3457691b7f72.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Telaga Simpul</h4>
+              <p>Pantai Marina</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-TS">
+            <div class="portfolio-img"><img src="static/img/TelagaSimpul/d77c08f8-0a82-4fb1-bc12-7f66044ef5a4.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Telaga Simpul</h4>
+              <p>Pantai Marina</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-TS">
+            <div class="portfolio-img"><img src="static/img/TelagaSimpul/dc1ad605-cc07-469d-aa4f-ebb0ecb7f334.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Telaga Simpul</h4>
+              <p>Pantai Marina</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ME">
+            <div class="portfolio-img"><img src="static/img/Menderu/2020-08-26.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Menderu</h4>
+              <p>Hutan Simpan Rasau</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ME">
+            <div class="portfolio-img"><img src="static/img/Menderu/air-terjun-menderu.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Menderu</h4>
+              <p>Hutan Simpan Rasau</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ME">
+            <div class="portfolio-img"><img src="static/img/Menderu/photo_2021-05-29_00-49-44.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Menderu</h4>
+              <p>Hutan Simpan Rasau</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ME">
+            <div class="portfolio-img"><img src="static/img/Menderu/Hutan Lipur Menderu.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Menderu</h4>
+              <p>Hutan Simpan Rasau</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ME">
+            <div class="portfolio-img"><img src="static/img/Menderu/photo_2021-05-29_00-50-35.jpg" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>Menderu</h4>
+              <p>Hutan Simpan Rasau</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End BestView Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container-sm">
+      <h3>HikeYuk</h3>
+      <p>Perjuangan Menuju Ke Puncak</p>
+      <div class="social-links">
+        <a href="https://twitter.com/home" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/dziya_uzzaman/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=60139381521" class=""><i class="bi-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/dziya-zaman-07ab2919b/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>HikeYuk</span></strong></div>
+      <div class="credits" style='font-weight:900;'>
+        <!-- All the links in the footer should remain intact. -->
+        Designed by <a href="https://www.facebook.com/" style='color:yellow; font-size:14px;'>Dziya AiSuna</a>
+      </div>
+    </div>
+    
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script  src="static/scriptLogin.js"></script>
+  <script  src="static/scriptPop.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+  
+
+</body>
+
+</html>

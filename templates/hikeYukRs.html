@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>HikeYuk</title>  
+  <link href="static/img/logoHike.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets1/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets1/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets1/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets1/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets1/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets1/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets1/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/styleBack.css">
+
+</head>
+
+<body>
+  <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+    <source src="static/vid/back.mp4" type="video/mp4">
+  </video>
+ <!-- ======= Hero Section ======= -->
+  <section id="hero">
+   
+  <div class="hero-container btnbg">
+
+    <h1>Welcome {{nama}} to HikeYuk</h1>
+    
+    <form action='/getDaerah' method='POST'>
+      <br></br>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <select class="form-select" aria-label="Default select example" name='daerah' onchange='daerahFil()'>
+            <option value='All'selected>Daerah</option>
+            {%for R11 in daerah%}
+            <option value="{{R11}}">{{R11}}</option>
+            {%endfor%}
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" aria-label="Default select example" name='jarak' onchange='daerahFil()'>
+            <option value='All'selected>Jarak Pendakian (KM)</option>
+            
+            <option value="<1">< 1</option>
+            <option value="1- 2">1 - 2</option>
+            <option value="2 - 5">2 - 5</option>
+            <option value="5 - 7">5 - 7</option>
+            <option value="8 - 10">7 - 10</option>
+            <option value="> 10">> 10</option>
+           
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" aria-label="Default select example" name='tahap' onchange='daerahFil()'>
+            <option value='All'selected>Tahap Kesukaran</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <select class="form-select" aria-label="Default select example" name='khemah' onchange='daerahFil()'>
+            <option value='All'selected>Berkhemah</option>
+            <option value="Ya">Ya</option>
+            <option value="Tidak">Tidak</option>
+            
+          </select>
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn-get-started  scrollto" style='color:black;'>Submit</button>
+    </form>
+
+
+    <a href="#about" class="btn-get-started scrollto">Tempat Anda</a>
+  </div>
+  </section><!-- End Hero -->
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center ">
+    <div class="container-fluid d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="/">HikeYuk</a></h1>
+     
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Menu</a></li>
+          <li><a class="nav-link scrollto" href="#about">Pilihan Untuk Anda</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a href="https://twitter.com/home" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/dziya_uzzaman/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=60139381521" class=""><i class="bi-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/in/dziya-zaman-07ab2919b/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 style='color: rgba(173, 108, 176,0.8)'>Recommender For You</h2>
+        </div>
+
+        <table class="table">
+          <thead class='' style='background-color:rgba(209, 231, 221,0.8)'>
+            <tr>
+              {% for p11 in CN11 %}
+               <th>{{p11}}</th>
+               {%endfor%}
+            </tr>
+          </thead>
+          <tbody>
+            
+            {%for R11 in RN11%}
+            
+              <tr style='background-color:rgba(208, 125, 241,0.8)'>  
+              {%for cell in R11%}
+              <td>{{cell}}</td>
+              {%endfor%}
+            </tr>
+        {%endfor%}
+          </tbody>
+        </table>
+      </div>
+    </section><!-- End About Section -->
+
+
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container-sm">
+        <div class="row  justify-content-center">
+          <div class="col-lg-6">
+            <h3>HikeYuk</h3>
+            <p>Perjuangan Menuju Ke Puncak</p>
+          </div>
+        </div>
+             <div class="social-links">
+              <a href="https://twitter.com/home" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/dziya_uzzaman/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://api.whatsapp.com/send?phone=60139381521" class=""><i class="bi-whatsapp"></i></a>
+              <a href="https://www.linkedin.com/in/dziya-zaman-07ab2919b/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+
+      </div>
+    </div>
+    <div class="container-sm footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>HikeYuk</span></strong></div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        Designed by <a href="https://www.facebook.com/">Dziya AiSuna</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets1/vendor/purecounter/purecounter.js"></script>
+  <script src="static/assets1/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets1/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets1/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="static/assets1/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets1/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets1/js/main.js"></script>
+
+
+
+</body>
+
+</html>

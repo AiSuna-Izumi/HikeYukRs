@@ -1,0 +1,48 @@
+Jarak Pendakian
+<1   	:1 =a
+1 - 2	:2 =b
+2 - 5	:3 =c
+5 - 7	:4 =d
+8 - 10	:5 =e
+> 10	:6 =f
+
+bandar = 0
+luar bandar = 1
+
+khemah
+ya = 1
+tidak = 0
+
+umur
+7 - 10 Tahun  	=a =9
+11 - 15 Tahun	=b =13
+16 - 20 Tahun	=c =18
+21 - 30 Tahun	=d =25
+31 - 40 Tahun	=e =35
+41 Tahun Keatas	=f
+
+
+Tinggi
+91 - 110 cm	=a =100
+111 - 120 cm	=b =120
+121 - 130 cm	=c =138
+131 - 150 cm	=d =145
+151 - 170 cm	=e =160
+170 - 200 cm	=f =190
+> 200 cm	=g =200
+
+Berat
+35 - 40 kg	=a =38
+41 - 50 kg	=b =45
+51 - 70 kg	=c =65
+> 70 kg		=d =75
+
+Tempoh masa pendakian
+
+1 jam		=a 
+1 - 2jam	=b 
+2 - 3 jam	=c
+4 - 12 jam	=d
+24 jam		=e
+48 jam (2hari)	=f
+72 jam (3hari) Keatas	=g
